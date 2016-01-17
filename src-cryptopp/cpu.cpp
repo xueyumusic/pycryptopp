@@ -100,8 +100,7 @@ bool CpuId(word32 input, word32 output[4])
 		(
 			// save ebx in case -fPIC is being used
 			// TODO: this might need an early clobber on EDI.
-//# if CRYPTOPP_BOOL_X32 || CRYPTOPP_BOOL_X64  ///comment by xueyu , compile error on my mac
-# if CRYPTOPP_BOOL_X64
+# if CRYPTOPP_BOOL_X32 || CRYPTOPP_BOOL_X64
 			"pushq %%rbx; cpuid; mov %%ebx, %%edi; popq %%rbx"
 # else
 			"push %%ebx; cpuid; mov %%ebx, %%edi; pop %%ebx"

@@ -5,6 +5,7 @@
 #include "hash/sha256module.hpp"
 #include "cipher/aesmodule.hpp"
 #include "cipher/xsalsa20module.hpp"
+#include "cipher/aesgcmmodule.hpp"
 
 /* from Crypto++ */
 #ifdef DISABLE_EMBEDDED_CRYPTOPP
@@ -54,7 +55,8 @@ init_pycryptopp(void) {
        embedded-in-pycryptopp version of Crypto++ but the dynamically linked
        library that we load is from an older version which doesn't have this
        symbol. In that case, the load will fail before we get this far. */
-    version = Py_BuildValue("is", CRYPTOPP_VERSION, cryptopp_extra_version);
+    //version = Py_BuildValue("is", CRYPTOPP_VERSION, cryptopp_extra_version);
+    version = Py_BuildValue("is", CRYPTOPP_VERSION, Py_None);
     #else
     version = Py_BuildValue("iO", CRYPTOPP_VERSION, Py_None);
     #endif
@@ -69,4 +71,5 @@ init_pycryptopp(void) {
     init_sha256(module);
     init_aes(module);
     init_xsalsa20(module);
+    init_aesgcm(module);
 }

@@ -250,7 +250,7 @@ static int GCC_RRA_GenerateBlock(byte *output, size_t size, unsigned int safety)
 			: "=a" (val), "=qm" (rc)
 			:
 			: "cc"
-        );*/
+        );*/ /// comment by xueyu, compile error on my mac
 
 		if (rc)
         {
@@ -422,7 +422,7 @@ static int GCC_RSA_GenerateBlock(byte *output, size_t size, unsigned int safety)
 			: "=a" (val), "=qm" (rc)
 			:
 			: "cc"
-        );*/
+        );*/ /// comment by xueyu, compile error on my mac
 
 		if (rc)
         {
